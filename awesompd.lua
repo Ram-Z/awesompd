@@ -338,6 +338,18 @@ function awesompd:command_read(com, mode)
    return result
 end
 
+function awesompd:command_play()
+   return function()
+             self:command("play",self.update_track)
+          end
+end
+
+function awesompd:command_pause()
+   return function()
+             self:command("pause",self.update_track)
+          end
+end
+
 function awesompd:command_playpause()
    return function()
              self:command("toggle",self.update_track)
