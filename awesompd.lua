@@ -436,6 +436,7 @@ function awesompd:command_previous_server()
              if servers == 1 or servers == nil then
                 return
              else
+                self:command("pause", self.update_track)
                 if self.current_server > 1 then
                    self:change_server(self.current_server - 1)
                 else
@@ -452,6 +453,7 @@ function awesompd:command_next_server()
              if servers == 1 or servers == nil then
                 return
              else
+                self:command_pause()()
                 if self.current_server < servers then
                    self:change_server(self.current_server + 1)
                 else
